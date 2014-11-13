@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="319.0" prefWidth="499.0" snapToPixel="true" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.GUIController">
+    <!-- TODO Add Nodes -->
+    <children>
+        <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="499.0">
+            <menus>
+                <Menu id="" mnemonicParsing="false" text="BBCode template" fx:id="mnuBBcode">
+                    <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleMnuDefaultRawAction" text="Default Raw"
+                                       fx:id="mnuDefaultRaw">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="BBcode"/>
+                            </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleMnuDefaultEngAction" text="Default Eng"
+                                       toggleGroup="$BBcode" fx:id="mnuDefaultEng"/>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleMnuCustomAction" text="Custom"
+                                       toggleGroup="$BBcode" fx:id="mnuCustom"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Options">
+                    <items>
+                        <CheckMenuItem mnemonicParsing="false" onAction="#handleMnuFetchCoverAction" text="Fetch cover"
+                                       fx:id="mnuFetchCover"/>
+                        <CheckMenuItem disable="true" mnemonicParsing="false" text="Extract folder"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TextField fx:id="txtMangaID" layoutX="14.0" layoutY="32.0" onAction="#handleTxtMangaIdAction" prefWidth="167.0"
+                   promptText="Enter baka id here"/>
+        <TextArea fx:id="txrDownloadLinks" layoutX="14.0" layoutY="61.0" prefHeight="138.0" prefWidth="167.0"
+                  promptText="Enter download link(s) here" wrapText="true"/>
+        <TextArea fx:id="txrResult" editable="false" layoutX="188.0" layoutY="32.0" prefHeight="273.0" prefWidth="297.0"
+                  promptText="Formatted BBcode will be here" wrapText="true"/>
+        <Button fx:id="btnGenerate" layoutX="14.0" layoutY="239.0" mnemonicParsing="false"
+                onAction="#handleBtnGenerateAction" prefHeight="33.0" prefWidth="167.0" text="GENERATE"/>
+        <Button fx:id="btnCopy" layoutX="14.0" layoutY="279.0" minHeight="14.0" mnemonicParsing="false"
+                onAction="#handleBtnCopyAction" prefHeight="26.0" prefWidth="167.0" text="Copy to clipboard"/>
+        <ComboBox fx:id="cbbHost" layoutX="14.0" layoutY="206.0" onAction="#handleCbbHostAction" prefHeight="26.0"
+                  prefWidth="167.0" promptText="Choose your host">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Mediafire"/>
+                    <String fx:value="Megaupload"/>
+                    <String fx:value="Box"/>
+                    <String fx:value="Google"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </children>
+    <padding>
+        <Insets/>
+    </padding>
+</AnchorPane>

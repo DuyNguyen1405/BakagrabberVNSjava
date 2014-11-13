@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="BakaGrabber">
+    <output-path>$PROJECT_DIR$/out/artifacts/BakaGrabber</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="gui.Main" />
+        <option name="description" value="" />
+        <option name="htmlParamFile" value="" />
+        <option name="paramFile" value="" />
+        <option name="title" value="BakaGrabber" />
+        <option name="vendor" value="skyderai" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="BakaGrabber.jar">
+        <element id="module-output" name="BakaGrabber" />
+        <element id="extracted-dir" path="D:/.m2/repository/org/apache/commons/commons-lang3/3.3/commons-lang3-3.3.jar" path-in-jar="/" />
+      </element>
+    </root>
+  </artifact>
+</component>
