@@ -84,7 +84,7 @@ public class GUIController {
 
       String
           mangaupdatesLink =
-          "http://www.mangaupdates.com/series.html?id=" + txtMangaID.getText();
+          "https://www.mangaupdates.com/series.html?id=" + txtMangaID.getText();
       BakaGrabber bakaManga = new BakaGrabber(mangaupdatesLink);
 
       if (Config.getCover()) {

@@ -5,6 +5,8 @@ import org.apache.commons.lang3.text.StrBuilder;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 public class BakaGrabber {
 
     private Manga manga;
@@ -19,7 +21,6 @@ public class BakaGrabber {
 
         String url = "http://www.mangaupdates.com/series.html?id=86647";
         BakaGrabber test = new BakaGrabber(url);
-        System.out.println(test.toString());
     }
 
     public String getCover() {
@@ -52,11 +53,19 @@ public class BakaGrabber {
 
         String[] genres = StringUtils.split(manga.getGenres(), ", ");
         for (int i = 0; i < genres.length; i++) {
-            String cautiousGenres = "Adult|Horror|Mature|Smut";
-            if (genres[i].matches(cautiousGenres)) {
-                isAdult = true;
-                genres[i] = "[COLOR=Red][B]" + genres[i] + "[/B][/COLOR]";
-            }
+          String cautiousGenres = "Adult|Horror|Mature|Smut";
+          if (genres[i].matches(cautiousGenres)) {
+            isAdult = true;
+            genres[i] = ("[COLOR=Red][B]" + genres[i] + "[/B][/COLOR]");
+          }
+          String bannedGenres = "Hentai|Yuri|Yaoi";
+          if (genres[i].matches(bannedGenres)) {
+            String error = "This manga contains a banned genre. You cannot post this";
+            result.clear();
+            JOptionPane.showMessageDialog(null, error, "Error", 0);
+            
+            return result.toString();
+          }
         }
         result = result.replaceAll("$genres", StringUtils.join(genres, ", "));
 

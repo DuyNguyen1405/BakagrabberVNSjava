@@ -143,6 +143,7 @@ public class Manga {
         this.mangaupdatesLink = mangaupdatesLink;
         URL url = new URL(mangaupdatesLink);
         URLConnection uc = url.openConnection();
+        uc.connect();
         BufferedReader br = new BufferedReader(new InputStreamReader(uc.getInputStream(), "windows-1256"));
         String line;
 
@@ -221,7 +222,7 @@ public class Manga {
             }
 
             // get cover
-            if (line.contains("http://www.mangaupdates.com/image/")) {
+            if (line.contains("https://www.mangaupdates.com/image/")) {
                 this.cover = StringUtils.substringBetween(line, "src='", "'><");
             }
 
@@ -279,10 +280,4 @@ public class Manga {
             }
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        // getInfos("http://www.mangaupdates.com/series.html?id=75426");
-        // getInfo("http://www.mangaupdates.com/series.html?id=92203");
-    }
-
 }
