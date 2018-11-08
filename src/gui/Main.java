@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setTitle("Baka Grabber 1.7.1 - Box Download Manga Vnsharing");
+        primaryStage.setTitle("Baka Grabber 1.7.2 - Box Download Manga Vnsharing");
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("GUI.fxml"));
         AnchorPane rootLayout = (AnchorPane) loader.load();
         Scene scene = new Scene(rootLayout);
